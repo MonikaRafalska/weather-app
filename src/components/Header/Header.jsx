@@ -12,7 +12,6 @@ const Header = () => {
   }])
   const [weather, setWeather] = useState([])
   async function fetchWeather(e) {
-    // e.preventDefault()
     if (form.city === "") {
       alert("Invalid value, enter the city name");
     } else {
@@ -42,7 +41,7 @@ const Header = () => {
       setForm({...form, city: value})
     }
   }
-  const haldleClick = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
     fetchWeather(e)
@@ -50,7 +49,7 @@ const Header = () => {
   }
   return (
     <div>
-      <form onSubmit={(e) => haldleClick(e)}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <h1>Weather App</h1>
         <input
           type="text"
@@ -60,7 +59,6 @@ const Header = () => {
           className={styles.input__header}
         />
         <button className={styles.button}
-          // onClick={(e) => haldleClick(e)}
         >
           Submit
         </button>
