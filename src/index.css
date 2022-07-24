@@ -29,8 +29,30 @@ html{
 
 body{
   font-family: 'Lato', sans-serif;
-  /* background-color:; */
+  background-image: url(../src/images/bcg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   color: black;
   line-height: 1.7;
   /* background-image: */
 }
+
+
+/* .section{
+  padding: 30px 20px 60px 20px;
+} */
+
+/* ============ MEDIA QUERIES MEDIUM DEVICES ==============*/
+/* @media screen and (max-width: 768px) {
+  .section{
+    padding: 60px 134px 90px 134px;
+  }
+} */
+
+/* ============ MEDIA QUERIES BIG DEVICES ==============*/
+
+/* @media screen and (max-width: 1024px) {
+  .section{
+    padding: 79px 134px 90px 134px;
+  }
+} */

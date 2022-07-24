@@ -1,8 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
+import Header from './components/Header/Header'
+import Hero from './components/Hero/Hero'
 
 const App = () => {
   return (
-    <h1>Start</h1>
+    <>
+      <Header />
+      <Hero />
+    </>
   );
 };
 export default App;
