@@ -1,28 +1,37 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Header.module.css";
 import Hero from '../Hero/Hero'
-import WetherItem from "./WetherItem";
+import WeatherItem from "./WeatherItem";
+
 
 const Header = () => {
   const API_KEY = "96849fb0b19d41d96eede86cac41d091";
 
-  const [form, setForm] = useState({
+  const [form, setForm] = useState([{
     city: ""
-  })
+  }])
   const [weather, setWeather] = useState([])
-  async function weatherData(e) {
-    e.preventDefault()
+  async function fetchWeather(e) {
+    // e.preventDefault()
     if (form.city === "") {
-      alert("Add value")
+      alert("Invalid value, enter the city name");
     } else {
       const data = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${form.city}&units=metric&APPID=${API_KEY}`
       )
-        .then(res => res.json())
+        .then((res) => {
+          if (res.ok) {
+            return res.json()
+          } else {
+            if (res.status === 404) {
+              return alert("Wrong location")
+            } alert("Error")
+          }
+        })
         .then((data) => data)
       setWeather({
-          data: data
-        })
+        data: data,
+      })
     }
   }
 
@@ -32,11 +41,16 @@ const Header = () => {
     if (name === 'city') {
       setForm({...form, city: value})
     }
-    // console.log(form.city);
+  }
+  const haldleClick = (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    fetchWeather(e)
+    form.reset();
   }
   return (
     <div>
-      <form>
+      <form onSubmit={(e) => haldleClick(e)}>
         <h1>Weather App</h1>
         <input
           type="text"
@@ -45,13 +59,15 @@ const Header = () => {
           onChange={(e) => handleChange(e)}
           className={styles.input__header}
         />
-        <button
-          className={styles.button}
-          onClick={(e) => weatherData(e)}>Submit</button>
+        <button className={styles.button}
+          // onClick={(e) => haldleClick(e)}
+        >
+          Submit
+        </button>
       </form>
       {weather.data !== undefined ? (
         <div>
-          <WetherItem data={weather.data} />
+          <WeatherItem data={weather.data} />
         </div>
       ) : null}
     </div>
