@@ -41,8 +41,8 @@ const CityList = () => {
           {city.country} | {Math.round(city.temperature * 10) / 10}
           °C | {new Date().toISOString().slice(0, 10)} |
           <img
-            src={"http://openweathermap.org/img/wn/" + `${city.icon}` + ".png"}
-            alt=""
+            src={"https://openweathermap.org/img/wn/" + `${city.icon}` + ".png"}
+            alt="weather icon"
             className={styles.list__icon}
           />
           {city.description}
@@ -55,8 +55,7 @@ const CityList = () => {
 const Input = () => {
   const context = React.useContext(WeatherContext);
   const [name, setName] = React.useState("");
-  const onSubmit = (e) => {
-    if (e.key === 'Enter') {
+  const onSubmit = () => {
       const locationName = encodeURIComponent(name);
       fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${locationName}&units=metric&APPID=96849fb0b19d41d96eede86cac41d091`
@@ -84,8 +83,12 @@ const Input = () => {
         .catch((err) => {
           console.log(err);
         });
-    }
   };
+  const onKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      onSubmit()
+    }
+  }
   return (
     <div className={styles.wrapper}>
       <input
@@ -94,7 +97,7 @@ const Input = () => {
         value={name}
         placeholder="Enter the city..."
         onChange={(e) => setName(e.target.value)}
-        onKeyPress={onSubmit}
+        onKeyPress={onKeyPress}
       />
       <button className={styles.button} onClick={onSubmit}>
         Submit
