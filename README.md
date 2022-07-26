@@ -1,3 +1,3 @@
-### Weather App in React with https://openweathermap.org/ API. <br>
-#### You can check current weather at multiple city at once. <br>
-##### Try it.
+## Weather App in React with https://openweathermap.org/ API. <br>
+### You can check current weather at multiple city at once. <br>
+#### Try it --> monikarafalska.github.io/weather-app/
