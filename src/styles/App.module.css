@@ -1,0 +1,67 @@
+.app{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+/* ====== INPUT styles ======= */
+.app_input{
+  border-radius: 30px;
+  height: 48px;
+  width: 100%;
+  color: var(--color-black);
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  transition: var(--transition);
+  font-size: 18px;
+}
+.app_input:hover,
+.app_input:focus{
+box-shadow: var(--box-shadow);
+}
+.button{
+  width: 100%;
+  height: 48px;
+  border-radius: 30px;
+  color: var(--color-white);
+  background-color: var(--color-bg);
+  font-size: 18px;
+  line-height: 1.2;
+}
+.button:hover,
+.button:focus{
+  background-color: #102136;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+}
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* ====== CITY LIST styles ======= */
+.list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  background-color: var(--color-bg);
+  width: 50%;
+  height: 100%;
+  border-radius: 34px;
+}
+.list__item{
+  padding: 10px 20px;
+  font-size: 25px;
+  color: var(--color-white);
+}
+.list__item:not(:last-child){
+  border-bottom: 1px solid var(--color-gray);
+}
+.list__icon{
+  margin-bottom: -15px;
+  margin-top: -15px;
+}
