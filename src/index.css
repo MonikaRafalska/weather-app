@@ -14,6 +14,7 @@
   --color-white: #FFFFFF;
   --color-orange: #FF6B09;
   --color-black: #000000;
+  --color-gray: #767D85;
   --box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
 }
 
@@ -27,28 +28,43 @@ html{
 
 body{
   font-family: 'Lato', sans-serif;
-  background-image: url(../src/images/bcg.png);
+  background-image: url(../src/images/desktop.png);
   background-repeat: no-repeat;
   background-size: cover;
   color: black;
 }
+@media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx){
+        body{
+          background-image: url(../src/images/desktop@2x.png);
+          }
+        }
 
-
-/* .section{
-  padding: 30px 20px 60px 20px;
-} */
 
 /* ============ MEDIA QUERIES MEDIUM DEVICES ==============*/
-/* @media screen and (max-width: 320px) {
-  .section{
-    padding: 60px 134px 90px 134px;
+@media screen and (max-width: 768px) {
+  body{
+    background-image: url(../src/images/tablet.png);
   }
-} */
-
+  @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx){
+          body{
+            background-image: url(../src/images/tablet@2x.png)
+          }
+        }
+}
 /* ============ MEDIA QUERIES SMALL DEVICES ==============*/
-
-/* @media screen and (max-width: 768px) {
-  .section{
-    padding: 79px 134px 90px 134px;
+@media screen and (max-width: 320px) {
+  body{
+    background-image: url(../src/images/mobile.png);
   }
-} */
+  @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx){
+          body{
+            background-image: url(../src/images/mobile@2x.png);
+          }
+        }
+}
